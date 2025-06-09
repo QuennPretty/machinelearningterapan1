@@ -99,7 +99,7 @@ for col in categorical_cols:
     df[col] = le.fit_transform(df[col])
     label_encoders[col] = le
 
-### Pembagian Data (Train-Test Split):
+#### Pembagian Data (Train-Test Split):
 
 Penjelasan Proses: Dataset dibagi menjadi dua set: data latih (training set) dan data uji (testing set). Fitur (X) terdiri dari kolom-kolom kategorikal yang telah di-encode, skor-skor numerik (math score, reading score, writing score), dan fitur baru average_score. Variabel target (y) adalah kolom performance.
 
@@ -107,7 +107,7 @@ Alasan: Pembagian data ini penting untuk melatih model pada satu subset data dan
 
 from sklearn.model_selection import train_test_split
 
-# Fitur X termasuk 'average_score'
+#### Fitur X termasuk 'average_score'
 X = df[categorical_cols + ['math score', 'reading score', 'writing score', 'average_score']]
 y = df['performance']
 
@@ -257,7 +257,7 @@ False Negatives (FN): 0 (siswa dengan performa baik diprediksi kurang)
 
 True Positives (TP): 90 (siswa dengan performa baik diprediksi benar)
 
-[Visualisasi Confusion Matrix untuk Tuned Random Forest akan ditampilkan di sini jika notebook dieksekusi]
+![image](https://github.com/user-attachments/assets/3b94c8d0-a096-405f-9953-f9c12b5e2653)
 
 Visualisasi Feature Importances (untuk Tuned Random Forest):
 Analisis feature importances dari model Random Forest terbaik menunjukkan fitur-fitur yang paling berpengaruh:
@@ -271,17 +271,11 @@ reading score
 math score
 Fitur-fitur kategorikal lainnya memiliki kontribusi yang jauh lebih kecil.
 
-                       Feature  Importance
-8                average_score    0.394031
-7                writing score    0.288240
-6                reading score    0.181349
-5                   math score    0.121525
-4      test preparation course    0.006159
-0                       gender    0.003006
-3                        lunch    0.002779
-1               race/ethnicity    0.002147
-2  parental level of education    0.000763
-```[Visualisasi Feature Importances untuk Tuned Random Forest akan ditampilkan di sini jika notebook dieksekusi]`
+![image](https://github.com/user-attachments/assets/c3942b99-873f-4e37-8738-fd16d3d05d4f)
+
+
+
+![image](https://github.com/user-attachments/assets/6de90b8c-31a4-410d-a0d8-99be004fa549)
 
 Kesimpulan dari *feature importance* ini (dalam konteks notebook) adalah bahwa skor rata-rata dan skor individu mata pelajaran adalah prediktor terkuat untuk performa siswa secara keseluruhan.
 
